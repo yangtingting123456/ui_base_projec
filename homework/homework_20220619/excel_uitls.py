@@ -17,7 +17,7 @@ class ExcelUtils:
         for i in range(0, len(row_list)):
             data = row_list[i]
             for j in range(0, len(data)):
-                sheet.write(i, j, data[j])
+                sheet.write(i, j,data[j])
         wb.save(self.excel_path)
 
     def read_excel(self):
@@ -45,7 +45,7 @@ class ExcelUtils:
 
 if __name__ == '__main__':
     ecl_util = ExcelUtils()
-    #     ecl_util.write_excel()
+    ecl_util.write_excel()
     # ecl_util.read_excel()
     # for i in range(0,4):
-    print(ecl_util.list_to_change_dic())
+    # print(ecl_util.list_to_change_dic())
