@@ -43,15 +43,9 @@ class ExcelUtils:
             c.append(b)
         return c
 
-
-
-
-
-
-
 if __name__ == '__main__':
     ecl_util = ExcelUtils()
     #     ecl_util.write_excel()
     # ecl_util.read_excel()
     # for i in range(0,4):
-    # print(ecl_util.list_to_change_dic()[0])
+    print(ecl_util.list_to_change_dic())
