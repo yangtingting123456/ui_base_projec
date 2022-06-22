@@ -2,7 +2,7 @@
 # @Time : 2022/6/20 11:35
 from selenium import webdriver
 import time,os
-from homework.handle_excel import HandleExcel
+from homework.homework_20220619.handle_excel import HandleExcel
 
 excel_path = os.path.join(os.path.abspath(__file__), "../data/zentao_login_cookies.xlsx")
 cl = HandleExcel(file_name=excel_path,sheet_name='zentao_cookies')
