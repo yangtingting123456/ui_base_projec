@@ -56,13 +56,14 @@ driver.maximize_window()
 # 2）后代元素 A空格B (类似 >)
 # driver.find_element(By.CSS_SELECTOR,'form span input').send_keys('后代元素')
 # 3）第一个后代元素： first-child
-driver.find_element(By.CSS_SELECTOR,'a#s-top-username a:first-child').click()
-
+# a1 = driver.find_element(By.CSS_SELECTOR,'div#u1 a:first-child')
+# ActionChains(driver).move_to_element(a1).perform()
 # 4）最后一个后代元素
 # a = driver.find_element(By.CSS_SELECTOR,'div#u1 a:last-child')
-
+# ActionChains(driver).move_to_element(a).perform()
 # 5）第n个元素： nth-child
-# driver.find_element(By.CSS_SELECTOR,'div#u1 a:nth-child(3)').click()
+# a3 = driver.find_element(By.CSS_SELECTOR,'div#u1 a:nth-child(3)')
+# ActionChains(driver).move_to_element(a3).perform()
 
 # 7.6查询兄弟元素
 # 1)同层级下一个元素  +
