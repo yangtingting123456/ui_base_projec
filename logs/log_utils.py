@@ -26,3 +26,14 @@ logger.addHandler(console)  #在控制台打印
 logger.info('控制台输出info级别日志')
 logger.error('控制台输出error级别日志')
 logger.debug('控制台输出debug级别日志')
+
+
+# 2.将日志写入文件
+log_path = os.path.join(os.path.dirname(__file__),'python.log')
+file_log = logging.FileHandler(log_path,encoding='utf-8')
+formatter = logging.Formatter("%(asctime)s -- %(filename)s -- %(levelname)s -- %(message)s")
+file_log.setFormatter(formatter)
+logger.addHandler(file_log)
+logger.info('文件输出info级别日志')
+logger.error('文件输出error级别日志')
+logger.debug('控制台输出debug级别日志')

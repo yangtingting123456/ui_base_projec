@@ -1,0 +1,4 @@
+2022-06-26 10:30:16,028 -- log_utils.py -- INFO -- 文件输出info级别日志
+2022-06-26 10:30:16,028 -- log_utils.py -- ERROR -- 文件输出error级别日志
+2022-06-26 10:30:49,378 -- log_utils.py -- INFO -- 文件输出info级别日志
+2022-06-26 10:30:49,378 -- log_utils.py -- ERROR -- 文件输出error级别日志
