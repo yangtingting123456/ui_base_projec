@@ -4,7 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
 
-def send_email_fujian(fujian_path):
+def send_email_fujian(fujian_path,file_name):
     mail_host = "smtp.qq.com"  # 设置服务器
     mail_user = "3048903923@qq.com"  # 用户名
     mail_pass = "qefidvxpbltxdfha"  # 口令
@@ -22,11 +22,11 @@ def send_email_fujian(fujian_path):
     # 邮件正文内容
     message.attach(MIMEText('这是菜鸟教程Python 邮件发送测试……', 'plain', 'utf-8'))
 
-    # 构造附件1，传送当前目录下的 test.txt 文件
+    # 构造附件
     att1 = MIMEText(open(fujian_path, 'rb').read(), 'base64', 'utf-8')
     att1["Content-Type"] = 'application/octet-stream'
     # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
-    att1["Content-Disposition"] = 'attachment; filename="test.txt"'
+    att1["Content-Disposition"] = 'attachment; filename=report.html'
     message.attach(att1)
 
     try:

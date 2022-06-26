@@ -14,7 +14,7 @@ mail_user = "3048903923@qq.com"  # 用户名
 mail_pass = "qefidvxpbltxdfha"  # 口令
 
 sender = '3048903923@qq.com'
-receivers = ['3048903923@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+receivers = ['2656343994@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
 
 # 创建一个带附件的实例
 message = MIMEMultipart()
@@ -33,11 +33,7 @@ att1["Content-Type"] = 'application/octet-stream'
 att1["Content-Disposition"] = 'attachment; filename="test.txt"'
 message.attach(att1)
 
-# 构造附件2，传送当前目录下的 runoob.txt 文件
-att2 = MIMEText(open('/send_email\\runoob.txt', 'rb').read(), 'base64', 'utf-8')
-att2["Content-Type"] = 'application/octet-stream'
-att2["Content-Disposition"] = 'attachment; filename="runoob.txt"'
-message.attach(att2)
+
 
 try:
     smtpObj = smtplib.SMTP()
