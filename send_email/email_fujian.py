@@ -27,14 +27,14 @@ message['Subject'] = Header(subject, 'utf-8')
 message.attach(MIMEText('这是菜鸟教程Python 邮件发送测试……', 'plain', 'utf-8'))
 
 # 构造附件1，传送当前目录下的 test.txt 文件
-att1 = MIMEText(open('E:\\pycharm_workbook\\ui_base_projec\\email\\test.txt', 'rb').read(), 'base64', 'utf-8')
+att1 = MIMEText(open('/send_email\\test.txt', 'rb').read(), 'base64', 'utf-8')
 att1["Content-Type"] = 'application/octet-stream'
 # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
 att1["Content-Disposition"] = 'attachment; filename="test.txt"'
 message.attach(att1)
 
 # 构造附件2，传送当前目录下的 runoob.txt 文件
-att2 = MIMEText(open('E:\\pycharm_workbook\\ui_base_projec\\email\\runoob.txt', 'rb').read(), 'base64', 'utf-8')
+att2 = MIMEText(open('/send_email\\runoob.txt', 'rb').read(), 'base64', 'utf-8')
 att2["Content-Type"] = 'application/octet-stream'
 att2["Content-Disposition"] = 'attachment; filename="runoob.txt"'
 message.attach(att2)
