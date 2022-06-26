@@ -1,4 +1,6 @@
-2022-06-26 10:30:16,028 -- log_utils.py -- INFO -- 文件输出info级别日志
-2022-06-26 10:30:16,028 -- log_utils.py -- ERROR -- 文件输出error级别日志
-2022-06-26 10:30:49,378 -- log_utils.py -- INFO -- 文件输出info级别日志
-2022-06-26 10:30:49,378 -- log_utils.py -- ERROR -- 文件输出error级别日志
+2022-06-26 10:51:26,909 -- log_utils.py -- INFO -- ee
+2022-06-26 10:55:26,421 -- log_utils.py -- INFO -- 加载浏览器
+2022-06-26 10:55:26,568 -- log_utils.py -- INFO -- 浏览器最大化
+2022-06-26 10:55:27,277 -- log_utils.py -- INFO -- 加载url
+2022-06-26 10:55:32,285 -- log_utils.py -- INFO -- 等待5s
+2022-06-26 10:55:34,406 -- log_utils.py -- INFO -- 关闭浏览器
