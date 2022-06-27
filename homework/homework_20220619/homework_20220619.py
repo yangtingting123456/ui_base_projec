@@ -120,6 +120,10 @@ time.sleep(2)
 driver.find_element(By.ID,'srch').send_keys(Keys.ENTER)
 time.sleep(2)
 driver.switch_to.frame('g_iframe')
-driver.find_elements(By.CSS_SELECTOR,'div.srchsongst > div >div:nth-child(1)')[0].click()
+# driver.find_elements(By.CSS_SELECTOR,'div.srchsongst > div >div:nth-child(1)')[0].click()
+driver.find_element(By.CSS_SELECTOR,'a#song_468176711').click()
+
+
+
 time.sleep(60)
 driver.quit()
