@@ -14,7 +14,7 @@ def send_email_fujian(fujian_path,file_name):
 
     # 创建一个带附件的实例
     message = MIMEMultipart()
-    message['From'] = Header("菜鸟教程", 'utf-8')
+    message['From'] = Header("测试报告", 'utf-8')
     message['To'] = Header("测试", 'utf-8')
     subject = 'Python SMTP 邮件测试'
     message['Subject'] = Header(subject, 'utf-8')

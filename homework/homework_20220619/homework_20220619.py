@@ -75,27 +75,25 @@ time.sleep(1)
 driver.find_element(By.CSS_SELECTOR,'input[class="form_btn form_btn--block"]').click()
 time.sleep(1)
 '''
-选择目的地、时间、人数
+选择入住酒店目的地、时间、人数
 '''
-ruzhu_place=driver.find_element(By.CSS_SELECTOR,'input[class="hs_show-hightlight_CWkCV"]')
-ruzhu_place.clear()
-time.sleep(1)
-ruzhu_place.click()
-driver.find_element(By.CSS_SELECTOR,'div[class="hs_hot-city-picker_rBGm- hs_panel-border-shadow_ui12E"] div ul li').click()
-# checkIn = driver.find_element(By.CSS_SELECTOR,'p[id="checkIn"]')
-# checkIn.click()
-# checkIn.clear()
-# checkIn.send_keys('7月2日')
-# driver.find_element(By.CSS_SELECTOR,'span[class="hs_week_DziA9"]').send_keys('(周六)')
-# checkOut = driver.find_element(By.CSS_SELECTOR,'p[id="checkOut"]')
-# checkOut.click()
-# checkOut.clear()
-# checkIn.send_keys('7月3日')
-# driver.find_element(By.CSS_SELECTOR,'span[class="hs_week_DziA9"]').send_keys('(周日)')
-driver.find_element(By.CSS_SELECTOR,'div[class="hs_search-btn-container_R0HuJ"]').click()
-# 搜索
-
-
-time.sleep(30)
+hotels_destination = driver.find_element(By.ID,'hotels-destination')
+hotels_destination.clear()
+hotels_destination.send_keys('西安')
+#选择入住日期
+driver.find_element(By.ID,'checkIn').click()
+driver.find_elements(By.CSS_SELECTOR,'div.c-calendar__body  div.c-calendar-month div.c-calendar-month__days ul:nth-child(2)')[0].click()
+driver.find_elements(By.CSS_SELECTOR,'div.c-calendar__body  div.c-calendar-month div.c-calendar-month__days ul:nth-child(5)')[1].click()
+#选择房间以及住客
+driver.find_element(By.CSS_SELECTOR,'div[class="hs_room-guest-normal_ORFU8"]').click()
+driver.find_elements(By.CSS_SELECTOR,'div.hs_guest-select_MyRAh div.hs_actions_o7WkH span:nth-child(3)')[0].click()
+driver.find_element(By.CSS_SELECTOR,'span.hs_done-span_-EIBx').click()
+#选择星级
+driver.find_element(By.CSS_SELECTOR,'div.hs_star-rate-normal_4Xd1x').click()
+driver.find_elements(By.CSS_SELECTOR,'div.hs_child-kid_o2dPC')[2].click()
+driver.find_element(By.CSS_SELECTOR,'span.hs_done-span_bF5dT').click()
+#点击搜索
+driver.find_element(By.CSS_SELECTOR,'div.hs_search-btn-container_R0HuJ').click()
+time.sleep(10)
 driver.quit()
 #    2.2 打开网易云音乐->登录->搜索音乐(城南花已开)->播放三亩地的版本

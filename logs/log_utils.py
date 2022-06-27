@@ -21,11 +21,12 @@ class LogUtils:
     def debug(self, message):
         return self.logger.debug(message)
 
-    def critical(self,message):
+    def critical(self, message):
         return self.logger.critical()
 
-    def warning(self,message):
+    def warning(self, message):
         return self.logger.warning(message)
+
 
 logs_obj = LogUtils()
 if __name__ == '__main__':

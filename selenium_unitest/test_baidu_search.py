@@ -2,9 +2,10 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import unittest
+import unittest,os
 
-driver_path = 'E:\chromedriver_win32\chromedriver.exe'
+driver_path = os.path.join(os.path.dirname(__file__),'../driver/chromedriver.exe')
+
 class BaiDu(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=driver_path)

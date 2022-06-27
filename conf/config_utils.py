@@ -1,4 +1,4 @@
-#读取配置文件
+# 读取配置文件
 import configparser, os
 
 config_path = os.path.join(os.path.dirname(__file__), '../conf/config.ini')
@@ -39,15 +39,17 @@ class ConfigUtils:
         return self.conf.options(key)
 
     def get_baidu_url(self):
-        return self.conf.get('baidu_url','url')
+        return self.conf.get('baidu_url', 'url')
 
-    def get_username(self,key,value):
-        return self.conf.get(key, value)
+    def get_username(self):
+        return self.conf.get('name','name1')
 
-    def get_password(self,key,value):
-        return self.conf.get('baidu_url','url')
+    def get_password(self):
+        return self.conf.get('baidu_url', 'url')
+
 
 config = ConfigUtils(config_path)
+
 if __name__ == '__main__':
     config = ConfigUtils(config_path)
     print(config.get_sections())
@@ -55,5 +57,5 @@ if __name__ == '__main__':
     print(config.get_values('baidu_url', 'url'))
     print(config.get_options('name'))
     print(config.get_baidu_url())
-    print(config.get_username('name','name1'))
-    print(config.get_password('password','password1'))
+    print(config.get_username())
+    print(config.get_password())

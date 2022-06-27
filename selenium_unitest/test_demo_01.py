@@ -1,4 +1,4 @@
-import unittest
+import unittest,os
 
 class Test_Info(unittest.TestCase):
     def setUp(self):
