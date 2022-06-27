@@ -54,46 +54,72 @@
 
 # 2、完成自动化流程
 #    2.1 登录携程->选择目的地、时间、人数->搜索->点击查看详情->预定(不付款)
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# import os,time
+# driver_path = os.path.join(os.path.abspath(__file__),'../../../driver/chromedriver.exe')
+# driver = webdriver.Chrome(executable_path=driver_path)
+# driver.get('https://www.ctrip.com/')
+# driver.implicitly_wait(30)
+# driver.maximize_window()
+# '''
+# 点击登录按钮，输入用户名和密码，
+# 点击复选框，点击登录按钮
+# '''
+# driver.find_element(By.CSS_SELECTOR,'div[class="tl_nfes_home_header_login_title_5neWJ"]').click()
+# driver.find_element(By.CSS_SELECTOR,'input[class="r_input"]').send_keys('17633710286')
+# driver.find_element(By.CSS_SELECTOR,'input[type="password"]').send_keys('Qwer@1234')
+# driver.find_element(By.CSS_SELECTOR,'input[class="agreement-checkbox"]').click()
+# time.sleep(1)
+# driver.find_element(By.CSS_SELECTOR,'input[class="form_btn form_btn--block"]').click()
+# time.sleep(1)
+# '''
+# 选择入住酒店目的地、时间、人数
+# '''
+# hotels_destination = driver.find_element(By.ID,'hotels-destination')
+# hotels_destination.clear()
+# hotels_destination.send_keys('西安')
+# #选择入住日期
+# driver.find_element(By.ID,'checkIn').click()
+# driver.find_elements(By.CSS_SELECTOR,'div.c-calendar__body  div.c-calendar-month div.c-calendar-month__days ul:nth-child(2)')[0].click()
+# driver.find_elements(By.CSS_SELECTOR,'div.c-calendar__body  div.c-calendar-month div.c-calendar-month__days ul:nth-child(5)')[1].click()
+# #选择房间以及住客
+# driver.find_element(By.CSS_SELECTOR,'div[class="hs_room-guest-normal_ORFU8"]').click()
+# driver.find_elements(By.CSS_SELECTOR,'div.hs_guest-select_MyRAh div.hs_actions_o7WkH span:nth-child(3)')[0].click()
+# driver.find_element(By.CSS_SELECTOR,'span.hs_done-span_-EIBx').click()
+# #选择星级
+# driver.find_element(By.CSS_SELECTOR,'div.hs_star-rate-normal_4Xd1x').click()
+# driver.find_elements(By.CSS_SELECTOR,'div.hs_child-kid_o2dPC')[2].click()
+# driver.find_element(By.CSS_SELECTOR,'span.hs_done-span_bF5dT').click()
+# #点击搜索
+# driver.find_element(By.CSS_SELECTOR,'div.hs_search-btn-container_R0HuJ').click()
+# time.sleep(10)
+# driver.quit()
+#    2.2 打开网易云音乐->登录->搜索音乐(城南花已开)->播放三亩地的版本
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 import os,time
 driver_path = os.path.join(os.path.abspath(__file__),'../../../driver/chromedriver.exe')
-print(driver_path)
 driver = webdriver.Chrome(executable_path=driver_path)
-driver.get('https://www.ctrip.com/')
+driver.get('https://music.163.com/')
+driver.refresh()
 driver.implicitly_wait(30)
 driver.maximize_window()
-'''
-点击登录按钮，输入用户名和密码，
-点击复选框，点击登录按钮
-'''
-driver.find_element(By.CSS_SELECTOR,'div[class="tl_nfes_home_header_login_title_5neWJ"]').click()
-driver.find_element(By.CSS_SELECTOR,'input[class="r_input"]').send_keys('17633710286')
-driver.find_element(By.CSS_SELECTOR,'input[type="password"]').send_keys('Qwer@1234')
-driver.find_element(By.CSS_SELECTOR,'input[class="agreement-checkbox"]').click()
+#登录
 time.sleep(1)
-driver.find_element(By.CSS_SELECTOR,'input[class="form_btn form_btn--block"]').click()
-time.sleep(1)
-'''
-选择入住酒店目的地、时间、人数
-'''
-hotels_destination = driver.find_element(By.ID,'hotels-destination')
-hotels_destination.clear()
-hotels_destination.send_keys('西安')
-#选择入住日期
-driver.find_element(By.ID,'checkIn').click()
-driver.find_elements(By.CSS_SELECTOR,'div.c-calendar__body  div.c-calendar-month div.c-calendar-month__days ul:nth-child(2)')[0].click()
-driver.find_elements(By.CSS_SELECTOR,'div.c-calendar__body  div.c-calendar-month div.c-calendar-month__days ul:nth-child(5)')[1].click()
-#选择房间以及住客
-driver.find_element(By.CSS_SELECTOR,'div[class="hs_room-guest-normal_ORFU8"]').click()
-driver.find_elements(By.CSS_SELECTOR,'div.hs_guest-select_MyRAh div.hs_actions_o7WkH span:nth-child(3)')[0].click()
-driver.find_element(By.CSS_SELECTOR,'span.hs_done-span_-EIBx').click()
-#选择星级
-driver.find_element(By.CSS_SELECTOR,'div.hs_star-rate-normal_4Xd1x').click()
-driver.find_elements(By.CSS_SELECTOR,'div.hs_child-kid_o2dPC')[2].click()
-driver.find_element(By.CSS_SELECTOR,'span.hs_done-span_bF5dT').click()
-#点击搜索
-driver.find_element(By.CSS_SELECTOR,'div.hs_search-btn-container_R0HuJ').click()
-time.sleep(10)
+driver.find_element(By.LINK_TEXT,'登录').click()
+driver.find_element(By.CSS_SELECTOR,'div._2t0Z3pyt').find_element(By.LINK_TEXT,'选择其他登录模式').click()
+driver.find_element(By.ID,'j-official-terms').click()
+driver.find_element(By.LINK_TEXT,'QQ登录').click()
+#QQ扫码登录
+time.sleep(30)
+#搜索音乐(城南花已开)
+driver.find_element(By.ID,'srch').send_keys('城南花已开')
+time.sleep(2)
+driver.find_element(By.ID,'srch').send_keys(Keys.ENTER)
+time.sleep(2)
+driver.switch_to.frame('g_iframe')
+driver.find_elements(By.CSS_SELECTOR,'div.srchsongst > div >div:nth-child(1)')[0].click()
+time.sleep(60)
 driver.quit()
-#    2.2 打开网易云音乐->登录->搜索音乐(城南花已开)->播放三亩地的版本
