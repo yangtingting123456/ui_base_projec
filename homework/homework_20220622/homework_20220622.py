@@ -10,14 +10,13 @@ print(driver_path)
 driver = webdriver.Chrome(executable_path=driver_path)
 driver.get('http://47.107.178.45/zentao/www/index.php?m=user&f=login ')
 driver.maximize_window()
-driver.implicitly_wait(10)
+driver.implicitly_wait(30)
 # 1 登录
 driver.find_element(By.CSS_SELECTOR, 'input[type="text"]').send_keys("test01")
 driver.find_element(By.CSS_SELECTOR, 'input[type="password"]').send_keys("newdream123")
 driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
 # 2 进入测试-bug-提bug模块
 driver.find_element(By.LINK_TEXT, '测试').click()
-
 # 3 输入bug信息
 driver.find_element(By.CSS_SELECTOR, 'li[data-id="bug"]').click()
 driver.find_element(By.LINK_TEXT, '提Bug').click()
@@ -78,9 +77,11 @@ driver.find_elements(By.CSS_SELECTOR,'li[title="A:admin"]')[1].click()
 #15 上传附件
 driver.find_element(By.CSS_SELECTOR,'div.file-input-empty button').click()
 
+
+
+
 #16 保存
 driver.find_element(By.CSS_SELECTOR,'td button#submit').click()
-
-#关闭驱动
-time.sleep(30)
+#17 关闭驱动
+time.sleep(10)
 driver.quit()
