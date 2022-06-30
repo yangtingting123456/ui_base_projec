@@ -78,10 +78,11 @@ driver.find_elements(By.CSS_SELECTOR,'li[title="A:admin"]')[1].click()
 driver.find_element(By.CSS_SELECTOR,'div.file-input-empty button').click()
 time.sleep(3)
 os.system('E:\\auto3_script\\up.exe')
-
-
 #16 保存
 driver.find_element(By.CSS_SELECTOR,'td button#submit').click()
 #17 关闭驱动
 time.sleep(10)
 driver.quit()
+
+
+
