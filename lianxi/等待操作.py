@@ -29,6 +29,3 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 # 引入WebDriverWait类
 element = WebDriverWait(driver,3).until(lambda x:x.find_element_by_css_selector("div.red_box"))
-
-
-

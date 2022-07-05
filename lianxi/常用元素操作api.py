@@ -33,10 +33,6 @@ print('获取对象标签名：',kw.tag_name)
 print('获取对象标签名称：',kw.location)
 print('获取元素坐标：',kw.location)
 
-
-
-
-
 time.sleep(10)
 driver.close()
 driver.quit()
