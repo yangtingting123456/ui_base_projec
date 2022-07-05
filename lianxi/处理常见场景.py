@@ -80,14 +80,14 @@ driver.switch_to.default_content()  #将是被的主题切除frame
 # 举例
 #alert对话框
 driver.find_element(By.NAME,'alterbutton').click()
-time.sleep(3)
+time.sleep(1)
 driver.switch_to.alert.accept()
 time.sleep(1)
 #prompt对话框
 driver.find_element(By.NAME,'promptbutton').click()
 driver.switch_to.alert.send_keys('hello promput')
 driver.switch_to.alert.dismiss()
-time.sleep(3)
+time.sleep(1)
 driver.find_element(By.NAME,'promptbutton').click()
 driver.switch_to.alert.send_keys('hello promput')
 driver.switch_to.alert.accept()
@@ -96,7 +96,7 @@ driver.switch_to.alert.accept()
 driver.find_element(By.NAME,'confirmbutton').click()
 driver.switch_to.alert.dismiss()
 driver.switch_to.alert.accept()
-time.sleep(3)
+time.sleep(1)
 driver.find_element(By.NAME,'confirmbutton').click()
 driver.switch_to.alert.accept()
 driver.switch_to.alert.accept()
@@ -111,10 +111,10 @@ driver.find_element(By.XPATH,'//option[@value="mango"]').click()
 from selenium.webdriver.support.select import Select
 selectElement = driver.find_element(By.XPATH,'//select[@id="Selector"]')
 s = Select(selectElement)
-s.select_by_index(2)
-time.sleep(2)
+s.select_by_index(1)
+time.sleep(1)
 s.select_by_value('mango')
-time.sleep(2)
+time.sleep(1)
 s.select_by_visible_text('桔子')
 
 # 七、调用javascript:
@@ -127,12 +127,44 @@ s.select_by_visible_text('桔子')
 driver.get('C:\\Users\\kcadmin\\Desktop\\ui_base_projec\\element\\wait.html')
 driver.execute_script('alert("hello!")')  #弹出窗口
 driver.switch_to.alert.accept()
-time.sleep(3)
+time.sleep(1)
 driver.find_element(By.CSS_SELECTOR,'button#b').click()
-time.sleep(6)
+time.sleep(1)
 wl = driver.find_element(By.CSS_SELECTOR,'div.red_box')
 driver.execute_script("arguments[0].style.border='10px solid purple'",wl)  #给元素加紫色边框
+time.sleep(1)
+driver.get('https://www.baidu.com')
+driver.find_element(By.ID,'kw').send_keys('selenium ui 自动化测试')
+js = "var user_input = document.getElementById('su').getAttribute('id');return user_input"
+driver.execute_script(js)  #识别并获取对象属性
+driver.find_element(By.ID,'su').click()
+time.sleep(1)
+driver.execute_script("var q=document.documentElement.scrollTop=10000")
 
+# 八、cookies处理:
+#    假如我们需要验证浏览器中是否存在cookie,因为基于真实的cookie是无法通过白盒和
+# 集成测试完成的，webdriver可以读取、添加和删除cookie信息webdriver操作cookie的方法如下：
+# get_cookies()    获取所有cookie信息
+# get_cookie(name)   返回特定name有cookie信息
+# add_cookie(cookie_dict)   添加cookie，必须有name和value值
+# delete_cookie(name)   删除特定部分的cookie信息
+# delete_all_cookies()  删除所有cookie信息
+# 举例：
+#获取所有cookie并打印
+driver.get("http://www.youdao.com")
+for cookie in driver.get_cookies():
+    print("%s -> %s" % (cookie['name'],cookie['value']))
+    #添加cookie举例
+    driver.add_cookie({'name':'key-aaaaa','value':'value-bbbb'})
+    driver.delete_cookie("key-aaaaa")  #删除cookie处理常见自动化场景
+
+# 九、验证码处理：
+#    对于web应用，很多地方比如登录、发帖都需要输入验证码，类似
+# 验证码处理一般有以下几种处理方式：
+# 1.去掉验证码。
+# 2.万能验证码。
+# 3.通过cookie绕过登录。
+# 4.图形识别技术识别验证码（存在准确度准确率的问题）
 
 time.sleep(7)
 driver.close()
