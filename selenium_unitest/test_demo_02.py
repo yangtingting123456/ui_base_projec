@@ -46,4 +46,5 @@ class Test_CaCl(unittest.TestCase):
         print('t_in')
 
 
-
+if __name__ == '__main__':
+    unittest.main()

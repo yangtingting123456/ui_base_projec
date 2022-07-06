@@ -1,4 +1,4 @@
-#计算机类
+#计算器类
 class CaCl:
     def add(a,b):
         return a+b

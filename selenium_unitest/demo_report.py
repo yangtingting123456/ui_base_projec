@@ -1,10 +1,8 @@
 import time
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import unittest
 import HTMLTestRunner
-import os
 
 driver_path = 'E:\chromedriver_win32\chromedriver.exe'
 
@@ -54,7 +52,7 @@ class BaiDu(unittest.TestCase):
         self.assertEqual(title, '小猪_百度搜索')
 
 
-#
+
 # def suite():
 #     suite = unittest.TestSuite()  # 套件
 #     suite.addTest(BaiDu('test_search_dog'))
